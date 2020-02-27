@@ -6,11 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+
         <module name="SDJ3" />
+          <module name="exercise3" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SDJ3" target="12" />
+      <module name="SDJ3" target="12.0.2" />
+        <module name="exercise3" target="12.0.2" />
+
+
     </bytecodeTargetLevel>
   </component>
 </project>
