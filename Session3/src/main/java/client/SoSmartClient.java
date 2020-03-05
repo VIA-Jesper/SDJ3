@@ -1,6 +1,8 @@
 package client;
 
-import shared.ISoSmart;
+
+import shared.DBTransactions;
+import shared.MoM;
 
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
@@ -22,7 +24,7 @@ public class SoSmartClient implements Remote
 
   }
 
-  private ISoSmart soSmart;
+  private DBTransactions soSmart;
 
   public SoSmartClient() throws RemoteException {
     // implement client and pull interface from server to be able to run methods on server
@@ -30,9 +32,10 @@ public class SoSmartClient implements Remote
     Registry registry = LocateRegistry.getRegistry("localhost", 1099);
     try {
       // pull method from server
-      soSmart = (ISoSmart) registry.lookup("MoM");
+      soSmart = (DBTransactions) registry.lookup("MoM");
     } catch (NotBoundException e) {
       e.printStackTrace();
+      System.out.println("Make sure the server is running");
     }
     System.out.println("Client started...");
   }
@@ -41,11 +44,16 @@ public class SoSmartClient implements Remote
   public String findMoM(String key) {
     try
     {
-      return soSmart.findMoM(key);
+      MoM mom = soSmart.getMom(key);
+      if (mom == null) {
+        return "Cannot find name";
+      }
+      return mom.getMom();
+
     }
     catch (RemoteException e)
     {
-      e.printStackTrace();
+      //e.printStackTrace();
     }
     return "Error";
   }

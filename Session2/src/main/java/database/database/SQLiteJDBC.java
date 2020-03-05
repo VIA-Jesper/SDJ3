@@ -1,4 +1,4 @@
-package Session2.database.database;
+package database.database;
 
 import Session2.shared.database.Record;
 
@@ -78,7 +78,7 @@ public class SQLiteJDBC {
     public List<Record> getRecords() {
         Connection c = null;
         Statement stmt = null;
-        List<Record> records = new ArrayList<>();
+        List<Record> records = new ArrayList<Record>();
         try {
             c = getConn();
             c.setAutoCommit(false);
@@ -122,8 +122,8 @@ public class SQLiteJDBC {
 
 
             stmt = c.createStatement();
-            String sql = "INSERT INTO Bank (Balance) " +
-                    "VALUES ("+ startAmount +");";
+            String sql = String
+                .format("INSERT INTO Bank (Balance) VALUES (%s);", startAmount);
             stmt.execute(sql);
             c.close();
             System.out.println("Customer successfully created...");

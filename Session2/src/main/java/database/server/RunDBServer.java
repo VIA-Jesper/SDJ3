@@ -1,6 +1,4 @@
-package Session2.database.server;
-
-import Session2.bank.bankserver.BankServer;
+package database.server;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -17,7 +15,7 @@ public class RunDBServer {
             Registry registry = LocateRegistry.createRegistry(1098);
             registry.bind("DB",  new DBServer());
             System.out.println("DB server started");
-        } catch (RemoteException | AlreadyBoundException e) {
+        } catch (AlreadyBoundException | RemoteException e) {
             e.printStackTrace();
         }
     }

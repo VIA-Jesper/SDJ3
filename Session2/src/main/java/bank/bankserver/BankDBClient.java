@@ -1,6 +1,6 @@
 package Session2.bank.bankserver;
 
-import Session2.database.database.DBTransactions;
+import database.database.DBTransactions;
 
 import java.rmi.NotBoundException;
 import java.rmi.Remote;

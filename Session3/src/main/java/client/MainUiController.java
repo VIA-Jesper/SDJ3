@@ -21,7 +21,9 @@ public class MainUiController
 
 
   public void findMoM() {
-    findMoMValue.setText(ssc.findMoM(findMoMTextName.getText()));
+    String result = ssc.findMoM(findMoMTextName.getText());
+
+    findMoMValue.setText(result != null ? result : "Name not found");
   }
   private SoSmartClient ssc;
   public void init(SoSmartClient ssc)

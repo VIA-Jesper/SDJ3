@@ -1,17 +1,11 @@
-package Session2.database.server;
+package database.server;
 
-import Session2.database.database.DBTransactions;
-import Session2.database.database.SQLiteJDBC;
-import Session2.shared.clientserver.Account;
-import Session2.shared.clientserver.AdministratorTransactions;
-import Session2.shared.clientserver.ClerkTransactions;
-import Session2.shared.clientserver.CustomerTransaction;
+import database.database.DBTransactions;
+import database.database.SQLiteJDBC;
 import Session2.shared.database.Record;
 
 import java.rmi.RemoteException;
-import java.rmi.server.ExportException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DBServer implements DBTransactions {

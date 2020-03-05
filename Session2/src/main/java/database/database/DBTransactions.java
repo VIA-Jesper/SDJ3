@@ -1,4 +1,4 @@
-package Session2.database.database;
+package database.database;
 
 import Session2.shared.database.Record;
 
