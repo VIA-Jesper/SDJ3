@@ -1,3 +1,7 @@
+package server;
+
+import shared.ISoSmart;
+
 import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Objects;

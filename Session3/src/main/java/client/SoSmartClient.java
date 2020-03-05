@@ -1,3 +1,7 @@
+package client;
+
+import shared.ISoSmart;
+
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;

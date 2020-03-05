@@ -1,3 +1,7 @@
+package client;
+
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.TextField;
@@ -17,7 +21,6 @@ public class MainUiController
 
 
   public void findMoM() {
-    System.out.println("Button Clicked");
     findMoMValue.setText(ssc.findMoM(findMoMTextName.getText()));
   }
   private SoSmartClient ssc;
@@ -25,5 +28,10 @@ public class MainUiController
   {
 
     this.ssc = ssc;
+  }
+
+  public void onQuitButtonAction(ActionEvent actionEvent)
+  {
+    System.exit(0);
   }
 }
