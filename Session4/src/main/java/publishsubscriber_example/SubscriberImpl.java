@@ -1,6 +1,8 @@
 package publishsubscriber_example;
 
 public class SubscriberImpl extends Subscriber{
+
+
     //Add subscriber with PubSubService for a topic
     public void addSubscriber(String topic, PubSubService pubSubService){
         pubSubService.addSubscriber(topic, this);

@@ -1,5 +1,7 @@
 package publishsubscriber_example;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,8 @@ public abstract class Subscriber {
     public List<Message> getSubscriberMessages() {
         return subscriberMessages;
     }
+
+
     public void setSubscriberMessages(List<Message> subscriberMessages) {
         this.subscriberMessages = subscriberMessages;
     }
@@ -27,8 +31,8 @@ public abstract class Subscriber {
 
     //Print all messages received by the subscriber
     public void printMessages(){
-        for(Message message : subscriberMessages){
-            System.out.println("publishsubscriber_example.Message Topic -> "+ message.getTopic() + " : " + message.getPayload());
+        for(Message obj : subscriberMessages){
+            System.out.println("Message Topic -> "+ obj.getTopic() + " : " + obj.getPayload());
         }
     }
 }

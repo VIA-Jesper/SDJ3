@@ -10,6 +10,7 @@ public class RunPubSub {
         Subscriber javaSubscriber = new SubscriberImpl();
         Subscriber allLanguagesSubscriber = new SubscriberImpl();
         Subscriber pythonSubscriber = new SubscriberImpl();
+        Subscriber eventlessSubscriber = new SubscriberImpl();
 
         PubSubService pubSubService = new PubSubService();
 
@@ -33,6 +34,8 @@ public class RunPubSub {
         pythonSubscriber.addSubscriber("Python",pubSubService);   //Python subscriber only subscribes to Python topics
         allLanguagesSubscriber.addSubscriber("Java", pubSubService);	//all subscriber, subscribes to both Java and Python
         allLanguagesSubscriber.addSubscriber("Python", pubSubService);
+        eventlessSubscriber.addSubscriber("Nothing", pubSubService);
+
 
         //Trying unSubscribing a subscriber
         //pythonSubscriber.unSubscribe("Python", pubSubService);
@@ -49,6 +52,9 @@ public class RunPubSub {
 
         System.out.println("\nMessages of All Languages Subscriber are: ");
         allLanguagesSubscriber.printMessages();
+
+        System.out.println("\nMessages of eventless Subscriber are: ");
+        eventlessSubscriber.printMessages();
 
         //After broadcast the messagesQueue will be empty, so publishing new messages to server
         System.out.println("\nPublishing 2 more Java Messages...");
