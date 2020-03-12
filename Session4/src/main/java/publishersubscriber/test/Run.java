@@ -1,13 +1,12 @@
-package exercise5_1__pubsub.test;
+package publishersubscriber.test;
 
-import exercise5_1__pubsub.models.ElementType;
-import exercise5_1__pubsub.models.Message;
-import exercise5_1__pubsub.models.PubSubObject;
-import exercise5_1__pubsub.pubsub.PubSubService;
-import exercise5_1__pubsub.pubsub.publisher.Publisher;
-import exercise5_1__pubsub.pubsub.publisher.PublisherImpl;
-import exercise5_1__pubsub.pubsub.subscriber.Subscriber;
-import exercise5_1__pubsub.pubsub.subscriber.SubscriberImpl;
+import publishersubscriber.models.Message;
+import publishersubscriber.models.PubSubObject;
+import publishersubscriber.pubsub.PubSubService;
+import publishersubscriber.pubsub.publisher.Publisher;
+import publishersubscriber.pubsub.publisher.PublisherImpl;
+import publishersubscriber.pubsub.subscriber.Subscriber;
+import publishersubscriber.pubsub.subscriber.SubscriberImpl;
 
 import java.util.Date;
 
@@ -28,23 +27,23 @@ public class Run {
 
         // Create one message that will be send to all subscribers of 'NORMAL_MSG_OBJ' type.
         Message msg = new Message("NORMAL: This is the first message", new Date(), "Bob");
-        PubSubObject psObj1 = new PubSubObject(ElementType.NORMAL_MSG_OBJ, msg);
+        PubSubObject psObj1 = new PubSubObject("NORMAL", msg);
 
         // Create one message that will be send to all subscribers of 'PRIORITY_MSG_OBJ' type.
         Message msg2 = new Message("HIGH: Second msg", new Date(), "Alice");
-        PubSubObject psObj2 = new PubSubObject(ElementType.PRIORITY_MSG_OBJ, msg2);
+        PubSubObject psObj2 = new PubSubObject("HIGH", msg2);
 
 
         normalPriorityPublisher.publish(psObj1, pubsubService);
         highPriorityPublisher.publish(psObj2, pubsubService);
 
         //    Subscribe
-        normalSub.addSubscriber(ElementType.NORMAL_MSG_OBJ, pubsubService);
+        normalSub.addSubscriber("NORMAL", pubsubService);
 
-        highSub.addSubscriber(ElementType.PRIORITY_MSG_OBJ, pubsubService);
+        highSub.addSubscriber("HIGH", pubsubService);
 
-        allSub.addSubscriber(ElementType.PRIORITY_MSG_OBJ, pubsubService);
-        allSub.addSubscriber(ElementType.NORMAL_MSG_OBJ, pubsubService);
+        allSub.addSubscriber("NORMAL", pubsubService);
+        allSub.addSubscriber("HIGH", pubsubService);
 
 
         // Broadcast that a new message has been added

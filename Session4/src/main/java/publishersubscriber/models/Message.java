@@ -1,4 +1,4 @@
-package exercise5_1__pubsub.models;
+package publishersubscriber.models;
 
 import java.util.Date;
 

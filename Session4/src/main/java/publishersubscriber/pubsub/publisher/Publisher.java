@@ -1,7 +1,7 @@
-package exercise5_1__pubsub.pubsub.publisher;
+package publishersubscriber.pubsub.publisher;
 
-import exercise5_1__pubsub.models.PubSubObject;
-import exercise5_1__pubsub.pubsub.PubSubService;
+import publishersubscriber.models.PubSubObject;
+import publishersubscriber.pubsub.PubSubService;
 
 public interface Publisher {
 

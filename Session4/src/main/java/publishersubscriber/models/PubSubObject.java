@@ -1,19 +1,19 @@
-package exercise5_1__pubsub.models;
+package publishersubscriber.models;
 
 public class PubSubObject {
-    private ElementType type;
+    private String type;
     private Object payload;
 
     public PubSubObject(){}
 
-    public PubSubObject(ElementType type, Object payload) {
+    public PubSubObject(String type, Object payload) {
         this.type = type;
         this.payload = payload;
     }
-    public ElementType getType() {
+    public String getType() {
         return type;
     }
-    public void setTopic(ElementType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
