@@ -6,14 +6,12 @@
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
-# User-specific stuff (NOTE: If you have already committed the file, then ignoring won't have any effect. You have to remove the file from the repository first:
-# git rm --cached .idea/workspace.xml
+# User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-.idea
 
 # Generated files
 .idea/**/contentModel.xml
@@ -68,7 +66,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-# Editor-based Rest Client
+# Editor-based Rest client
 .idea/httpRequests
 
 # Android studio 3.1+ serialized cache file
@@ -83,14 +81,8 @@ modules.xml
 *.ipr
 
 # End of https://www.gitignore.io/api/intellij+iml
-
-## custom
-*.db
-
-
-
-# Created by https://www.gitignore.io/api/maven
-# Edit at https://www.gitignore.io/?templates=maven
+/.idea/sqldialects.xml
+src/shared/util/application.properties
 
 ### Maven ###
 target/
