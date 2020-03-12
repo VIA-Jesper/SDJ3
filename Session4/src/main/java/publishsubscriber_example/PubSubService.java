@@ -14,7 +14,7 @@ public class PubSubService {
         messagesQueue.add(message);
     }
 
-    //Add a new publishsubscriber_example.Subscriber for a topic
+    //Add a new Subscriber for a topic
     public void addSubscriber(String topic, Subscriber subscriber){
 
         if(subscribersTopicMap.containsKey(topic)){

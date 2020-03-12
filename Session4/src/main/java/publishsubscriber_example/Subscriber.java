@@ -16,13 +16,13 @@ public abstract class Subscriber {
         this.subscriberMessages = subscriberMessages;
     }
 
-    //Add subscriber with publishsubscriber_example.PubSubService for a topic
+    //Add subscriber with PubSubService for a topic
     public abstract void addSubscriber(String topic, PubSubService pubSubService);
 
-    //Unsubscribe subscriber with publishsubscriber_example.PubSubService for a topic
+    //Unsubscribe subscriber with PubSubService for a topic
     public abstract void unSubscribe(String topic, PubSubService pubSubService);
 
-    //Request specifically for messages related to topic from publishsubscriber_example.PubSubService
+    //Request specifically for messages related to topic from PubSubService
     public abstract void getMessagesForSubscriberOfTopic(String topic, PubSubService pubSubService);
 
     //Print all messages received by the subscriber

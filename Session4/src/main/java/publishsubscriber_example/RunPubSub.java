@@ -3,7 +3,7 @@ package publishsubscriber_example;
 public class RunPubSub {
     public static void main(String[] args) {
 
-        //Instantiate publishers, subscribers and publishsubscriber_example.PubSubService
+        //Instantiate publishers, subscribers and PubSubService
         Publisher javaPublisher = new PublisherImpl();
         Publisher pythonPublisher = new PublisherImpl();
 
@@ -13,7 +13,7 @@ public class RunPubSub {
 
         PubSubService pubSubService = new PubSubService();
 
-        //Declare Messages and Publish Messages to publishsubscriber_example.PubSubService
+        //Declare Messages and Publish Messages to PubSubService
         Message javaMsg1 = new Message("Java", "Core Java Concepts");
         Message javaMsg2 = new Message("Java", "Spring MVC : Dependency Injection and AOP");
         Message javaMsg3 = new Message("Java", "JPA & Hibernate");
@@ -37,17 +37,17 @@ public class RunPubSub {
         //Trying unSubscribing a subscriber
         //pythonSubscriber.unSubscribe("Python", pubSubService);
 
-        //Broadcast message to all subscribers. After broadcast, messageQueue will be empty in publishsubscriber_example.PubSubService
+        //Broadcast message to all subscribers. After broadcast, messageQueue will be empty in PubSubService
         pubSubService.broadcast();
 
         //Print messages of each subscriber to see which messages they got
-        System.out.println("Messages of Java publishsubscriber_example.Subscriber are: ");
+        System.out.println("Messages of Java Subscriber are: ");
         javaSubscriber.printMessages();
 
-        System.out.println("\nMessages of Python publishsubscriber_example.Subscriber are: ");
+        System.out.println("\nMessages of Python Subscriber are: ");
         pythonSubscriber.printMessages();
 
-        System.out.println("\nMessages of All Languages publishsubscriber_example.Subscriber are: ");
+        System.out.println("\nMessages of All Languages Subscriber are: ");
         allLanguagesSubscriber.printMessages();
 
         //After broadcast the messagesQueue will be empty, so publishing new messages to server
@@ -59,7 +59,7 @@ public class RunPubSub {
         javaPublisher.publish(javaMsg5, pubSubService);
 
         javaSubscriber.getMessagesForSubscriberOfTopic("Java", pubSubService);
-        System.out.println("\nMessages of Java publishsubscriber_example.Subscriber now are: ");
+        System.out.println("\nMessages of Java Subscriber now are: ");
         javaSubscriber.printMessages();
     }
 }
