@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="session5" />
+        <module name="Session7" />
+        <module name="Session1" />
+        <module name="Session6" />
+        <module name="Session3" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Session1" target="1.5" />
+      <module name="Session2" target="12" />
+      <module name="Session3" target="12" />
+      <module name="session5" target="12" />
+      <module name="Session6" target="12" />
+      <module name="Session7" target="12" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
