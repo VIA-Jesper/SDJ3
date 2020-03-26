@@ -1,4 +1,4 @@
-package main.java.object_transfer_socket_java_to_java.shared;
+package main.java.object_transfer_socket_java_to_java_to_csharp.shared;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

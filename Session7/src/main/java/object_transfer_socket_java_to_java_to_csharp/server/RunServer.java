@@ -1,7 +1,7 @@
-package main.java.object_transfer_socket_java_to_java.server;
+package main.java.object_transfer_socket_java_to_java_to_csharp.server;
 
-import main.java.object_transfer_socket_java_to_java.shared.Converter;
-import main.java.object_transfer_socket_java_to_java.shared.Student;
+import main.java.object_transfer_socket_java_to_java_to_csharp.shared.Converter;
+import main.java.object_transfer_socket_java_to_java_to_csharp.shared.Student;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -69,15 +69,19 @@ public class RunServer {
                                     byte[] lenByte = new byte[4];
                                     dataInputStream.read(lenByte, 0, 4);
 
-                                    // convert to integer through BigInt
+                                    // convert to integer
                                     int length = Converter.lenghtBytesToInteger(lenByte);
 
-                                    // wait for the package
+                                    // wait for the package or object as bytes
                                     if (length > 0) {
                                         byte[] msg = new byte[length];
                                         dataInputStream.readFully(msg, 0, msg.length); // read the message from index 0, till the length of msg.length, place it in msg.
-                                        Converter.convertBytesToString(msg, length);
-
+                                        // convert bytes to json string
+                                        String json = Converter.convertBytesToString(msg, length);
+                                        // convert json to object
+                                        Student student = Converter.convertJsonToStudent(json);
+                                        // use object or print in console
+                                        System.out.println(student.toString());
                                     }
 
                                 } catch (IOException e) {

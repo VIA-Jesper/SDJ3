@@ -1,8 +1,7 @@
-package main.java.object_transfer_socket_java_to_java.client;
+package main.java.object_transfer_socket_java_to_java_to_csharp.client;
 
-import main.java.object_transfer_socket_java_to_java.shared.Converter;
-import main.java.object_transfer_socket_java_to_java.shared.JsonUtil;
-import main.java.object_transfer_socket_java_to_java.shared.Student;
+import main.java.object_transfer_socket_java_to_java_to_csharp.shared.Converter;
+import main.java.object_transfer_socket_java_to_java_to_csharp.shared.Student;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -28,7 +27,7 @@ public class RunClient {
                 Thread.sleep(3000);
 
                 // create student and send as json and send to check its converted
-                String json = JsonUtil.convertStudentToJson(new Student(1, "test from client"));
+                String json = Converter.convertStudentToJson(new Student(1, "test from client"));
                 r.sendMessage(json);
 
 
@@ -64,12 +63,14 @@ public class RunClient {
                         dataInputStream.read(lenBytes, 0, 4);
                         int length = Converter.lenghtBytesToInteger(lenBytes);
 
-                        System.out.println("lenght: " + length);
-
                         if (length > 0) {
                             byte[] msg = new byte[length];
                             dataInputStream.readFully(msg, 0, msg.length); // read the message from index 0, till the length of msg.length, place it in msg.
-                            JsonUtil.convertBytesToString(msg, length);
+                            String json = Converter.convertBytesToString(msg, length);
+                            // convert json to object
+                            Student student = Converter.convertJsonToStudent(json);
+                            // use object or print in console
+                            System.out.println(student.toString());
                         }
                     } catch (IOException e) {
                         e.printStackTrace();

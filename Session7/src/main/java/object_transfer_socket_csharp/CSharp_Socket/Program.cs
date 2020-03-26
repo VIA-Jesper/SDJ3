@@ -47,35 +47,56 @@ namespace CSharp_Socket
 
         private void ListenToServer()
         {
+            
             clientSocket.Connect(serverAddress);
 
             List<Student> studentsReceived = new List<Student>();
             while (true)
             {
-                // Receiving
-                byte[] rcvLenBytes = new byte[4];
-                clientSocket.Receive(rcvLenBytes);
-                int rcvLen = System.BitConverter.ToInt32(rcvLenBytes, 0);
-                byte[] rcvBytes = new byte[rcvLen];
-                clientSocket.Receive(rcvBytes);
-                String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
+                try
+                {
+                    // Receiving
+                    byte[] rcvLenBytes = new byte[4];
+                    clientSocket.Receive(rcvLenBytes);
+                    int rcvLen = System.BitConverter.ToInt32(rcvLenBytes, 0);
+                    byte[] rcvBytes = new byte[rcvLen];
+                    clientSocket.Receive(rcvBytes);
+                    String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
 
-                Console.WriteLine("Client received: " + rcv);
+                    Console.WriteLine("Client received: " + rcv);
 
-                Student student = JsonConvert.DeserializeObject<Student>(rcv);
-                studentsReceived.Add(student);
-                Console.WriteLine("Total students received: " + studentsReceived.Count);
+                    Student student = JsonConvert.DeserializeObject<Student>(rcv);
+                    studentsReceived.Add(student);
+                    Console.WriteLine("Total students received: " + studentsReceived.Count);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Connection dropped");
+                    break;
+                }
+                
             }
+            // retry
+            clientSocket.Close();
+
         }
 
         private void SendToServer(String jsonString)
         {
-            // Sending
-            int toSendLen = System.Text.Encoding.ASCII.GetByteCount(jsonString);
-            byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(jsonString);
-            byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
-            clientSocket.Send(toSendLenBytes);
-            clientSocket.Send(toSendBytes);
+            try
+            {
+                // Sending
+                int toSendLen = System.Text.Encoding.ASCII.GetByteCount(jsonString);
+                byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(jsonString);
+                byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
+                clientSocket.Send(toSendLenBytes);
+                clientSocket.Send(toSendBytes);
+            }
+            catch (Exception e)
+            {
+
+            }
+
         }
     }
 

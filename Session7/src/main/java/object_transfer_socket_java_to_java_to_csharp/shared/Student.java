@@ -1,4 +1,4 @@
-package main.java.object_transfer_socket_java_to_java.shared;
+package main.java.object_transfer_socket_java_to_java_to_csharp.shared;
 
 
 // This is an example class we want to send as json strong to server or receive from server
