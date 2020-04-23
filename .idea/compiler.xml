@@ -25,13 +25,22 @@
         <module name="Session5" />
         <module name="Session3" />
         <module name="Session1" />
+        <module name="Session10_RestEasy" />
+        <module name="session10_springdemo" />
+        <module name="Session10_resteasyTest" />
         <module name="webservicestest" />
+        <module name="session4" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Session1" target="1.5" />
+      <module name="Session10_RestEasy" target="12" />
+      <module name="session10_resteasy_notworking" target="12" />
+      <module name="Session10_resteasyTest" target="1.5" />
+      <module name="session10_springdemo" target="1.8" />
       <module name="Session2" target="12" />
       <module name="Session3" target="12" />
+      <module name="session4" target="12" />
       <module name="session5" target="12" />
       <module name="Session5" target="12" />
       <module name="Session6" target="12" />
@@ -40,5 +49,10 @@
       <module name="Session9" target="1.5" />
       <module name="webservicestest" target="12" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="session10_springdemo" options="-parameters" />
+    </option>
   </component>
 </project>
