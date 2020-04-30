@@ -42,7 +42,7 @@ public class Converter {
         return lengthBytes;
     }
 
-    public static int lenghtBytesToInteger(byte[] lengthBytes) {
+    public static int lengthBytesToInteger(byte[] lengthBytes) {
         int length = (((lengthBytes[3] & 0xff) << 24) | ((lengthBytes[2] & 0xff) << 16) | ((lengthBytes[1] & 0xff) << 8) | (lengthBytes[0] & 0xff));
         return length;
     }

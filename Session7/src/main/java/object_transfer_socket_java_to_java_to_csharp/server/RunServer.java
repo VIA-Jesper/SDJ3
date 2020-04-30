@@ -3,7 +3,9 @@ package main.java.object_transfer_socket_java_to_java_to_csharp.server;
 import main.java.object_transfer_socket_java_to_java_to_csharp.shared.Converter;
 import main.java.object_transfer_socket_java_to_java_to_csharp.shared.Student;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -70,7 +72,7 @@ public class RunServer {
                                     dataInputStream.read(lenByte, 0, 4);
 
                                     // convert to integer
-                                    int length = Converter.lenghtBytesToInteger(lenByte);
+                                    int length = Converter.lengthBytesToInteger(lenByte);
 
                                     // wait for the package or object as bytes
                                     if (length > 0) {

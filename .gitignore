@@ -458,3 +458,5 @@ healthchecksdb
 MigrationBackup/
 
 
+$PRODUCT_WORKSPACE_FILE$
+.name

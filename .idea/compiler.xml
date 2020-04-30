@@ -37,6 +37,7 @@
       <module name="Session10_RestEasy" target="12" />
       <module name="session10_resteasy_notworking" target="12" />
       <module name="Session10_resteasyTest" target="1.5" />
+      <module name="Session10_Spring_Async" target="1.8" />
       <module name="session10_springdemo" target="1.8" />
       <module name="Session2" target="12" />
       <module name="Session3" target="12" />
@@ -52,6 +53,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Session10_Spring_Async" options="-parameters" />
       <module name="session10_springdemo" options="-parameters" />
     </option>
   </component>

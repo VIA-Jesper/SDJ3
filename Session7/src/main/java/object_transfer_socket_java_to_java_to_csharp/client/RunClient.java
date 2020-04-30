@@ -61,7 +61,7 @@ public class RunClient {
                     try {
                         byte[] lenBytes = new byte[4];
                         dataInputStream.read(lenBytes, 0, 4);
-                        int length = Converter.lenghtBytesToInteger(lenBytes);
+                        int length = Converter.lengthBytesToInteger(lenBytes);
 
                         if (length > 0) {
                             byte[] msg = new byte[length];
