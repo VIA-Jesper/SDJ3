@@ -101,7 +101,7 @@ buildNumber.properties
 *.db
 
 
-
+*.jar
 
 
 # Created by https://www.gitignore.io/api/csharp,visualstudio
